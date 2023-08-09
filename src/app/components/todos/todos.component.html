@@ -1,0 +1,5 @@
+<div class="d-flex flex-wrap m-auto w-100 justify-content-center">
+  <div class="ms-2 me-2 mt-2 mb-2 w-25" *ngFor="let todo of todos">
+    <app-todo-items [todo]="todo" (todoDelete)="deleteTodo($event)"></app-todo-items>
+  </div>
+</div>
