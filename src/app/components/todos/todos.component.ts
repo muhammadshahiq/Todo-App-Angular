@@ -1,5 +1,5 @@
 import { Component, isSignal } from '@angular/core';
-import { Todo } from 'src/app/Todo';
+import { Todo } from 'src/app/models/Todo';
 
 @Component({
   selector: 'app-todos',
