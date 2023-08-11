@@ -5,6 +5,10 @@
     <p class="card-text">
       {{ todo.description }}
     </p>
-    <a href="#" class="btn btn-dark" (click)="onClick(todo)">Delete</a>
+    <div class="modal-footer gap-2">
+      <button type="submit" class="btn btn-dark" (click)="onUpdate(todo)">Update</button>
+      <button type="submit" class="btn btn-dark" (click)="onClick(todo)">Delete</button>
+    </div>
+
   </div>
 </div>

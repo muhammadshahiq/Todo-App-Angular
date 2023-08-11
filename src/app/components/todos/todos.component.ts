@@ -8,7 +8,7 @@ import { Todo } from 'src/app/models/Todo';
 })
 export class TodosComponent {
   todos!: Todo[];
-  localItem!: string;
+  localItem!: string | null;
 
   constructor() {
     this.localItem != localStorage.getItem('todos');

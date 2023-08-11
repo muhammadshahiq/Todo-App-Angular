@@ -9,11 +9,16 @@ import { Todo } from 'src/app/models/Todo';
 export class TodoItemsComponent {
   @Input() todo!: Todo;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
+  @Output() todoUpdate: EventEmitter<Todo> = new EventEmitter()
 
-  constructor() {}
+  constructor() { }
 
   onClick(todo: Todo) {
     this.todoDelete.emit(todo);
     console.log('on click runing');
+  }
+  onUpdate(todo: Todo) {
+    this.todoUpdate.emit(todo);
+    console.log('update is running')
   }
 }
