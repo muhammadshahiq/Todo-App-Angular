@@ -8,8 +8,10 @@ import { Todo } from 'src/app/models/Todo';
 })
 export class TodoItemsComponent {
   @Input() todo!: Todo;
+  @Input() i!: number;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
   @Output() todoUpdate: EventEmitter<Todo> = new EventEmitter()
+  @Output() todoDone: EventEmitter<Todo> = new EventEmitter()
 
   constructor() { }
 
@@ -20,5 +22,9 @@ export class TodoItemsComponent {
   onUpdate(todo: Todo) {
     this.todoUpdate.emit(todo);
     console.log('update is running')
+  }
+  toggleDone(todo: Todo) {
+    this.todoDone.emit(todo);
+    console.log('done')
   }
 }

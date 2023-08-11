@@ -11,11 +11,11 @@ export class TodosComponent {
   localItem!: string | null;
 
   constructor() {
-    this.localItem != localStorage.getItem('todos');
+    this.localItem = localStorage.getItem('todos');
     if (this.localItem == null) {
       this.todos = [];
     } else {
-      this.todos = JSON.parse('todos');
+      this.todos = JSON.parse(this.localItem);
     }
     console.log(this.todos, 'todos');
   }
@@ -28,6 +28,12 @@ export class TodosComponent {
 
   todoAdd(todo: Todo) {
     this.todos.push(todo);
+    localStorage.setItem('todos', JSON.stringify(this.todos));
+  }
+
+  doneTodo(todo: Todo) {
+    const index = this.todos.indexOf(todo);
+    this.todos[index].active = !this.todos[index].active;
     localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 }
