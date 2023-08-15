@@ -7,7 +7,7 @@ import { TodosComponent } from './components/todos/todos.component';
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
 import { FormsModule } from '@angular/forms';
 import { AddTodoItemsComponent } from './components/add-todo-items/add-todo-items.component';
-import { UpdateItemComponent } from './components/update-item/update-item.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +15,7 @@ import { UpdateItemComponent } from './components/update-item/update-item.compon
     TodosComponent,
     TodoItemsComponent,
     AddTodoItemsComponent,
-    UpdateItemComponent
+    MovieListComponent
   ],
   imports: [
     BrowserModule,
