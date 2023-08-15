@@ -11,11 +11,11 @@ export class TodosComponent {
   localItem!: string | null;
 
   constructor() {
-    this.localItem != localStorage.getItem('todos');
+    this.localItem = localStorage.getItem('todos');
     if (this.localItem == null) {
       this.todos = [];
     } else {
-      this.todos = JSON.parse('todos');
+      this.todos = JSON.parse(this.localItem);
     }
     console.log(this.todos, 'todos');
   }

@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-item.component.css']
 })
 export class UpdateItemComponent {
-
+  
 }
