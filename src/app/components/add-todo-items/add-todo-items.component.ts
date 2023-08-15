@@ -13,7 +13,7 @@ export class AddTodoItemsComponent {
 
   onSubmit() {
     const todo = {
-      id: Math.random(),
+      id: Math.floor(Math.random()*100000),
       title: this.title,
       description: this.description,
       active: true,

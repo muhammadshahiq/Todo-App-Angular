@@ -1,4 +1,4 @@
-import { Component, isSignal } from '@angular/core';
+import { Component } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
 
 @Component({
