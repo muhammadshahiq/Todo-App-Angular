@@ -5,11 +5,13 @@
   <div class="d-flex flex-wrap m-auto w-100 justify-content-center row">
     <div
       class="ps-2 pt-3 pb-3 col-sm-12 col-md-6 col-lg-4 col-xl-3"
-      *ngFor="let todo of todos"
+      *ngFor="let todo of todos; index as i"
     >
       <app-todo-items
         [todo]="todo"
+        [i]="i"
         (todoDelete)="deleteTodo($event)"
+        (todoDone)="doneTodo($event)"
       ></app-todo-items>
     </div>
   </div>
