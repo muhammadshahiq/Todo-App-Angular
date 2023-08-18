@@ -19,6 +19,7 @@ export class TodoItemsComponent {
     this.todoDelete.emit(todo);
     console.log('on click runing');
   }
+  
   onUpdate(todo: Todo) {
     this.todoUpdate.emit(todo);
     console.log('update is running')
