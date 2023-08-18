@@ -8,6 +8,8 @@ import { TodoItemsComponent } from './components/todo-items/todo-items.component
 import { FormsModule } from '@angular/forms';
 import { AddTodoItemsComponent } from './components/add-todo-items/add-todo-items.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
+import { MovieShareAlertComponent } from './components/movie-share-alert/movie-share-alert.component';
+import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
     TodosComponent,
     TodoItemsComponent,
     AddTodoItemsComponent,
-    MovieListComponent
+    MovieListComponent,
+    MovieShareAlertComponent,
+    MovieDetailsComponent
   ],
   imports: [
     BrowserModule,

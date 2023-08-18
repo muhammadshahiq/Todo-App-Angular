@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { Todo } from 'src/app/models/Todo';
+import { Movies, movies } from 'src/app/models/Movies';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -8,12 +9,17 @@ import { Todo } from 'src/app/models/Todo';
 })
 export class MovieListComponent {
   search!: string;
-  @Output() addTodo: EventEmitter<Todo> = new EventEmitter();
+  movies = [...movies];
+  @Output() addCart: EventEmitter<Movies> = new EventEmitter();
 
-  onSubmit() {
-    const todo = {
-      search: this.search,
-      active: true,
-    };
+
+
+  addToCart() {
+    this.addCart.emit()
+    alert('The Movie is added to cart')
+  }
+  onNotify(){
+    alert('The movie is on sale')
   }
 }
+

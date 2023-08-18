@@ -1,8 +1,17 @@
 <div class="container p-3">
   <form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Search Movies</label>
-      <input type="text" class="form-control" id="search" name="search" [(ngModel)]="search" required="true" />
+    <div class="mb-3 d-flex gap-2">
+      <input type="text" class="form-control col outline-dark" id="search" name="search" [(ngModel)]="search"
+        required="true" placeholder="Search movies" />
+      <button class="btn btn-outline-dark col-2">Checkout</button>
     </div>
   </form>
+  <div *ngFor="let movie of  movies" class="mb-3 p-3 movie-card">
+    <a [title]="movie.name + ' details'" class="movie_name" [routerLink]="['/movies', movie.id]">
+      {{movie.name}}
+    </a>
+    <p *ngIf="movie.description" class="mt-3">Descripton: {{movie.description}}</p>
+    <button type="button" class="btn btn-outline-dark" (click)="addToCart()">Buy</button>
+    <app-movie-share-alert [movie]="movie" (notify)="onNotify()"></app-movie-share-alert>
+  </div>
 </div>

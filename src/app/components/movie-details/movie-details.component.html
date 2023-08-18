@@ -1,0 +1,9 @@
+<div class="container">
+    
+    <h2>Product Details</h2>
+    <div *ngIf="movies" class="p-3 movie-detail-card">
+        <h3>{{ movies.name }}</h3>
+        <h4>{{ movies.price | currency }}</h4>
+        <p>{{ movies.description }}</p>
+    </div>
+</div>
