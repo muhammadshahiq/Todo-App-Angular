@@ -1,4 +1,4 @@
-<div class="w-100">
+<div>
   <app-add-todo-items (addTodo)="todoAdd($event)"></app-add-todo-items>
   <h3 class="text-dark">Your Todos</h3>
   <div *ngIf="this.todos.length === 0; elseBlock">No todos to show</div>

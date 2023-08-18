@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class AppComponent {
   constructor() {}
   title = 'my-practice-app';
+  currentYear: number=new Date().getFullYear();
 }

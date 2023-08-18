@@ -1,10 +1,10 @@
 <div class="card">
-  <h4 class="card-header bg-dark text-white">{{ todo.title }}</h4>
+  <h4 class="card-header bg-primary text-white">{{ todo.title }}</h4>
   <div class="card-body">
     <h5 class="card-title" [ngClass]="{ strike: !todo.active }">
       {{ todo.title }}
     </h5>
-    <span class="card-text">
+    <span class="card-text" [ngClass]="{ strike: !todo.active }">
       {{ todo.description }}
     </span>
     <div class="d-flex align-items-center pt-1 pb-1">
@@ -15,17 +15,17 @@
           class="checkbox"
           size="large"
           (click)="toggleDone(todo)"
-          id="todo{{i}}"
+          id="todo{{ i }}"
         />
       </div>
       <span class="ps-2 pb-1">Mark as Done!</span>
     </div>
     <div class="modal-footer gap-2">
-      <button type="submit" class="btn btn-dark" (click)="onUpdate(todo)">
-        Update
-      </button>
-      <button type="submit" class="btn btn-dark" (click)="onClick(todo)">
+      <button type="submit" class="btn btn-danger" (click)="onClick(todo)">
         Delete
+      </button>
+      <button type="submit" class="btn btn-success" (click)="onUpdate(todo)">
+        Update
       </button>
     </div>
   </div>
