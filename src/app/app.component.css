@@ -1,0 +1,9 @@
+.sticky {
+  position: sticky !important;
+}
+.top-0{
+    top: 0;
+}
+.top-50{
+    top: 10;
+}
