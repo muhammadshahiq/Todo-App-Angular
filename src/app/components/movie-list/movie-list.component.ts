@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { movies } from 'src/app/models/Movies';
+import { Movies, movies } from 'src/app/models/Movies';
 
 
 @Component({
@@ -8,11 +8,21 @@ import { movies } from 'src/app/models/Movies';
   styleUrls: ['./movie-list.component.css']
 })
 export class MovieListComponent {
-  search!: string;
-  movies = [...movies];
+  movies: Movies[] = [...movies];
+  filteredMovieList: Movies[] = [...movies];
 
   onNotify() {
     alert('The movie is on sale')
+  }
+
+  filterMovies(text: string) {
+    if (!text) {
+      this.filteredMovieList = this.movies;
+    }
+    this.filteredMovieList = this.movies.filter(
+      (movie) =>
+        movie.name.toLowerCase().includes(text.toLowerCase())
+    );
   }
 }
 
