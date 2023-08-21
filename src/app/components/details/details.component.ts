@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { HousingService } from '../../services/housing.service';
 import { HousingLocation } from '../../models/housinglocation';
@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
 })
-export class DetailsComponent {
+export class DetailsComponent implements OnInit {
   route: ActivatedRoute = inject(ActivatedRoute);
   housingService = inject(HousingService);
   housingLocation: HousingLocation | undefined;
@@ -28,7 +28,8 @@ export class DetailsComponent {
   //     this.housingService.getHousingLocationById(housingLocationId);
   // }
 
-  constructor() {
+  constructor() {}
+  ngOnInit() {
     const housingLocationId = parseInt(this.route.snapshot.params['id'], 10);
     this.housingService
       .getHousingLocationById(housingLocationId)

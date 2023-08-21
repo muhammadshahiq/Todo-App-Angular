@@ -9,7 +9,7 @@ import { HousingLocation } from 'src/app/models/housinglocation';
 })
 export class HomeComponent implements OnInit {
   housingLocationList: HousingLocation[] = [];
-  housingService: HousingService = inject(HousingService);
+  // housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
   baseUrl: string = '';
 
@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
   //   this.filteredLocationList = this.housingLocationList;
   // }
 
-  constructor() {}
+  constructor(private housingService: HousingService) {}
   ngOnInit() {
     this.housingService
       .getAllHousingLocations()
@@ -40,5 +40,4 @@ export class HomeComponent implements OnInit {
         housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );
   }
-  
 }
