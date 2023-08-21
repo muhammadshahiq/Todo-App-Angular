@@ -10,33 +10,19 @@
       </a> -->
       <a class="navbar-brand d-flex align-items-center" routerLink="/">
         <header class="brand-name d-flex align-items-center">
-          <img
-            class="brand-logo"
-            src="https://img.freepik.com/premium-vector/house-real-estate-logo_7169-95.jpg"
-            alt="logo"
-            aria-hidden="true"
-            height="70px"
-          />
+          <img class="brand-logo" src="assets/logo.jpeg"
+            alt="logo" aria-hidden="true" height="70px" />
           <h4>Homes</h4>
         </header>
       </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link font-weight-bolder active" aria-current="page" routerLink="/"
-              >Todos</a
-            >
+            <a class="nav-link font-weight-bolder active" aria-current="page" routerLink="/">Todos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link font-weight-bolder" routerLink="/home">Home Properties</a>
@@ -45,14 +31,10 @@
             <a class="nav-link font-weight-bolder" routerLink="/movies">Movies App</a>
           </li>
         </ul>
-        <form class="d-flex">
-          <input
-            class="form-control me-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
+        <form class="d-flex gap-2">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
           <button class="btn btn-success" type="submit">Search</button>
+          <button class="btn btn-outline-dark" type="submit" routerLink="/cart">Store</button>
         </form>
       </div>
     </div>
@@ -61,12 +43,7 @@
 
 <div class="container pt-3 pb-3 min-height-100">
   <router-outlet>
-    <ngx-spinner
-      bdColor="rgba(51,51,51,0.8)"
-      size="medium"
-      color="#fff"
-      type="ball-scale-multiple"
-    >
+    <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
       <p style="font-size: 20px; color: white">Loading...</p>
     </ngx-spinner>
     <!-- <app-spinner></app-spinner> -->
@@ -75,17 +52,9 @@
 
 
 <!-- Remove the container if you want to extend the Footer to full width. -->
-<footer
-  class="text-center text-dark shadow mt-5"
-  style="background-color: #f1f1f1"
->
-  <div
-    class="text-center text-dark p-3"
-  >
-    <a
-      class="navbar-brand d-flex align-items-center justify-content-center"
-      routerLink="/"
-    >
+<footer class="text-center text-dark shadow mt-5" style="background-color: #f1f1f1">
+  <div class="text-center text-dark p-3">
+    <a class="navbar-brand d-flex align-items-center justify-content-center" routerLink="/">
       © {{ currentYear }} Copyright: Angular App
     </a>
   </div>

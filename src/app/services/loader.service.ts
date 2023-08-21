@@ -15,7 +15,7 @@ export class LoaderService {
   ): Observable<HttpEvent<any>> {
     this.spinner.show();
     console.log('running...');
-    return next.handle(req).pipe(finalize(() => this.spinner.show()));
+    return next.handle(req).pipe(finalize(() => this.spinner.hide()));
   }
 }
 

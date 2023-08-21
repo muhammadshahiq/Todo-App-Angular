@@ -5,12 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TodosComponent } from './components/todos/todos.component';
 import { TodoItemsComponent } from './components/todo-items/todo-items.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AddTodoItemsComponent } from './components/add-todo-items/add-todo-items.component';
 import { HomeComponent } from './components/home/home.component';
 import { HousingLocationComponent } from './components/housing-location/housing-location.component';
 import { DetailsComponent } from './components/details/details.component';
-import { ReactiveFormsModule } from '@angular/forms';
 // import { SpinnerComponent } from './components/spinner/spinner.component';
 // import { LoadingInterceptor } from './loading.interceptor';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -22,6 +21,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieShareAlertComponent } from './components/movie-share-alert/movie-share-alert.component';
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
+import { CartComponent } from './components/cart/cart.component';
+import { ShippingComponent } from './components/shipping/shipping.component';
 
 // Available options
 interface NgxSpinnerConfig {
@@ -39,7 +40,9 @@ interface NgxSpinnerConfig {
     // SpinnerComponent,
     MovieListComponent,
     MovieShareAlertComponent,
-    MovieDetailsComponent
+    MovieDetailsComponent,
+    CartComponent,
+    ShippingComponent
   ],
   imports: [
     BrowserModule,
@@ -60,4 +63,4 @@ interface NgxSpinnerConfig {
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule {}
+export class AppModule { }

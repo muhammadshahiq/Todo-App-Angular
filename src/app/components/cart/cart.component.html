@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="d-flex mb-4 mt-3">
+        <span><a class="nav-link mt-2 me-2" routerLink="/movies">Back</a></span>
+        <h2>Cart</h2>
+    </div>
+    <p>
+        <a routerLink="/shipping" class="text-decoration-none">Shipping Prices</a>
+    </p>
+    <div class="movie-card p-3 mb-3" *ngFor="let item of movies">
+        <span>{{ item.name }}</span>
+        <span>&nbsp; {{ item.price | currency }}</span>
+    </div>
+    <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" *ngIf="movies">
+
+        <div class="d-flex gap-2 mb-2">
+            <label for="name">
+                Name:
+            </label>
+            <input id="name" type="text" formControlName="name">
+        </div>
+
+        <div class="d-flex gap-2 mb-2">
+            <label for="address">
+                Address:
+            </label>
+            <input id="address" type="text" formControlName="address">
+        </div>
+
+        <button type="submit" class="btn btn-success">Purchase</button>
+
+    </form>
+</div>
