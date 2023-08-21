@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { HousingLocation } from 'src/app/models/housinglocation';
 
@@ -7,7 +7,7 @@ import { HousingLocation } from 'src/app/models/housinglocation';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   housingLocationList: HousingLocation[] = [];
   housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
@@ -19,7 +19,8 @@ export class HomeComponent {
   //   this.filteredLocationList = this.housingLocationList;
   // }
 
-  constructor() {
+  constructor() {}
+  ngOnInit() {
     this.housingService
       .getAllHousingLocations()
       .then((housingLocationList: HousingLocation[]) => {
@@ -39,4 +40,5 @@ export class HomeComponent {
         housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );
   }
+  
 }

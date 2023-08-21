@@ -18,6 +18,9 @@
       </button>
     </form>
   </section>
+  <h4 class="w-100 text-center p-5" *ngIf="this.filteredLocationList.length === 0; elseBlock">
+    No Cities to show
+  </h4>
   <section class="results">
     <app-housing-location
       *ngFor="let housingLocation of filteredLocationList"
