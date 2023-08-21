@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { HousingLocation } from 'src/app/models/housinglocation';
 
@@ -7,9 +7,9 @@ import { HousingLocation } from 'src/app/models/housinglocation';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   housingLocationList: HousingLocation[] = [];
-  housingService: HousingService = inject(HousingService);
+  // housingService: HousingService = inject(HousingService);
   filteredLocationList: HousingLocation[] = [];
   baseUrl: string = '';
 
@@ -19,7 +19,8 @@ export class HomeComponent {
   //   this.filteredLocationList = this.housingLocationList;
   // }
 
-  constructor() {
+  constructor(private housingService: HousingService) {}
+  ngOnInit() {
     this.housingService
       .getAllHousingLocations()
       .then((housingLocationList: HousingLocation[]) => {
