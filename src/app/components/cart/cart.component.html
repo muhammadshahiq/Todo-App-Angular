@@ -6,28 +6,38 @@
   <p>
     <a routerLink="/shipping" class="text-decoration-none">Shipping Prices</a>
   </p>
-  <div class="movie-card shadow p-3 mb-3" *ngFor="let item of movies">
+  <div
+    class="movie-card p-3 mb-3 w-100 d-flex justify-content-between align-items-center"
+    *ngFor="let item of movies"
+  >
     <span>{{ item.name }}</span>
     <span>&nbsp; {{ item.price | currency }}</span>
   </div>
-  <div>
-    <span>{{ orderTotalPrice }}</span>
-  </div>
-  <form
-    [formGroup]="checkoutForm"
-    (ngSubmit)="onSubmit()"
-    [ngClass]="{ hide: movies.length === 0 }"
+  <div
+    *ngIf="orderTotalPrice > 0"
+    class="w-100 p-3 d-flex justify-content-between align-items-center"
   >
-    <div class="d-flex gap-2 mb-2">
-      <label for="name"> Name: </label>
-      <input id="name" type="text" formControlName="name" />
-    </div>
+    <hr />
+    <h6>Total</h6>
+    <h6>{{ orderTotalPrice }}</h6>
+  </div>
+  <div class="container">
+    <form
+      [formGroup]="checkoutForm"
+      (ngSubmit)="onSubmit()"
+      [ngClass]="{ hide: movies.length === 0 }"
+    >
+      <div class="d-flex mb-2">
+        <label for="name"> Name: </label>
+        <input id="name" type="text" formControlName="name" />
+      </div>
 
-    <div class="d-flex gap-2 mb-2">
-      <label for="address"> Address: </label>
-      <input id="address" type="text" formControlName="address" />
-    </div>
+      <div class="d-flex mb-2">
+        <label for="address"> Address: </label>
+        <input id="address" type="text" formControlName="address" />
+      </div>
 
-    <button type="submit" class="btn btn-success">Purchase</button>
-  </form>
+      <button type="submit" class="btn btn-success">Purchase</button>
+    </form>
+  </div>
 </div>

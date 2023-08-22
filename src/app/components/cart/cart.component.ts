@@ -20,16 +20,17 @@ export class CartComponent {
     private cartService: CartService,
     private formBuilder: FormBuilder,
     private location: Location
-  ) { }
+  ) {}
 
   onSubmit(): void {
     // Process checkout data here
     this.movies = this.cartService.clearCart();
     window.alert('Your order has been submitted');
     this.checkoutForm.reset();
+    this.orderTotalPrice = 0;
   }
 
   goBack(): void {
-    this.location.back()
+    this.location.back();
   }
 }

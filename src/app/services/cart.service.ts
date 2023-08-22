@@ -8,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class CartService {
   items: Movies[] = [];
   localItem!: string | null;
-  totalPrice: number = 100;
+  totalPrice: number = 0;
 
   constructor(
     private http: HttpClient
@@ -31,8 +31,8 @@ export class CartService {
   }
 
   getTotalPrice() {
-    for (let price of this.getItems()) {
-      console.log(price, 'price');
+    for (let item of this.getItems()) {
+      this.totalPrice += item.price;
     }
     return this.totalPrice;
   }
