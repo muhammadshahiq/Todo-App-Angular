@@ -45,5 +45,7 @@ export class DetailsComponent implements OnInit {
       this.applyForm.value.lastName ?? '',
       this.applyForm.value.email ?? ''
     );
+    // console.warn('Your order has been submitted', this.applyForm.value);
+    this.applyForm.reset()
   }
 }
