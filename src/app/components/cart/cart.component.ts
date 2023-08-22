@@ -25,7 +25,7 @@ export class CartComponent {
   onSubmit(): void {
     // Process checkout data here
     this.movies = this.cartService.clearCart();
-    // console.warn('Your order has been submitted', this.checkoutForm.value);
+    window.alert('Your order has been submitted');
     this.checkoutForm.reset();
   }
 

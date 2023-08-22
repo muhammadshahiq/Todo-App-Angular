@@ -7,19 +7,26 @@ import { Injectable } from '@angular/core';
 })
 export class CartService {
   items: Movies[] = [];
+  localItem!: string | null;
 
   constructor(
     private http: HttpClient
   ) {
-
+    this.localItem = localStorage.getItem('movies');
+    if (this.localItem == null) {
+      this.items = [];
+    } else {
+      this.items = JSON.parse(this.localItem);
+    }
   }
 
-  getShippingPrices(){
-    return this.http.get<{type: string, price: number}[]>('/assets/shipping.json');
+  getShippingPrices() {
+    return this.http.get<{ type: string, price: number }[]>('/assets/shipping.json');
   }
-  
+
   addToCart(movie: Movies) {
     this.items.push(movie);
+    localStorage.setItem('movies', JSON.stringify(this.items));
   }
 
   getItems() {
@@ -28,6 +35,7 @@ export class CartService {
 
   clearCart() {
     this.items = [];
+    localStorage.removeItem('movies')
     return this.items;
   }
 }
