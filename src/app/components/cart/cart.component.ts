@@ -6,14 +6,14 @@ import { Location } from '@angular/common';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
 })
 export class CartComponent {
-  movies = this.cartService.getItems()
-
+  movies = this.cartService.getItems();
+  orderTotalPrice = this.cartService.getTotalPrice();
   checkoutForm = this.formBuilder.group({
     name: '',
-    address: ''
+    address: '',
   });
 
   constructor(

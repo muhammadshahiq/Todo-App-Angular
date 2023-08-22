@@ -3,11 +3,12 @@ import { Movies } from '../models/Movies';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CartService {
   items: Movies[] = [];
   localItem!: string | null;
+  totalPrice: number = 100;
 
   constructor(
     private http: HttpClient
@@ -27,6 +28,13 @@ export class CartService {
   addToCart(movie: Movies) {
     this.items.push(movie);
     localStorage.setItem('movies', JSON.stringify(this.items));
+  }
+
+  getTotalPrice() {
+    for (let price of this.getItems()) {
+      console.log(price, 'price');
+    }
+    return this.totalPrice;
   }
 
   getItems() {
