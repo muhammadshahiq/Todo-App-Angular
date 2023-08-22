@@ -14,7 +14,22 @@
       <p *ngIf="movie.description" class="pt-2">
         Descripton: {{ movie.description }}
       </p>
-      <div class="d-flex flex-wrap w-100 justify-content-between align-items-center">
+      <div
+        class="d-flex flex-wrap w-100 justify-content-between align-items-center"
+      >
+        <h6 class="pt-2">Price: {{ movie.price | currency }}</h6>
+        <div
+          [ngClass]="{
+            textStyle: movie.rating >= 7,
+            textStyle2: movie.rating < 7
+          }"
+        >
+          Rating: {{ movie.rating }}
+        </div>
+      </div>
+      <div
+        class="d-flex flex-wrap w-100 justify-content-between align-items-center"
+      >
         <a
           [title]="movie.name + ' details'"
           class="pt-1 nav-link text-primary font-weight-bolder"
@@ -23,7 +38,7 @@
         >
         <app-movie-share-alert
           [movie]="movie"
-          (notify)="onNotify()"
+          (notifyMe)="onNotify($event)"
         ></app-movie-share-alert>
       </div>
     </div>

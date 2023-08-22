@@ -6,12 +6,14 @@
     <p>
         <a routerLink="/shipping" class="text-decoration-none">Shipping Prices</a>
     </p>
-    <div class="movie-card p-3 mb-3" *ngFor="let item of movies">
+    <div class="movie-card shadow p-3 mb-3" *ngFor="let item of movies">
         <span>{{ item.name }}</span>
         <span>&nbsp; {{ item.price | currency }}</span>
     </div>
+    <div>
+        <span>{{orderTotalPrice}}</span>
+    </div>
     <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" *ngIf="this.movies.length === 0; elseBlock">
-
         <div class="d-flex gap-2 mb-2">
             <label for="name">
                 Name:
