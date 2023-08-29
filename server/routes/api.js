@@ -44,7 +44,6 @@ router.post("/register", async (req, res) => {
 
     const payload = { subject: registeredUser._id };
     const token = jwt.sign(payload, "secretKey");
-    debugger;
     res.status(200).send({ token });
   } catch (error) {
     console.log(error);
