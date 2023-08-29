@@ -1,6 +1,7 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { HousingService } from '../../services/housing.service';
 import { HousingLocation } from 'src/app/models/housinglocation';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -40,4 +41,19 @@ export class HomeComponent implements OnInit {
         housingLocation?.city.toLowerCase().includes(text.toLowerCase())
     );
   }
+
+  // ngOnInit() {
+  //   this.housingService.getAllHousingLocations().subscribe(
+  //     (res) => {
+  //       console.log('Registration successful:', res);
+  //     },
+  //     (err) => {
+  //       if (err instanceof HttpErrorResponse) {
+  //         if (error.status === 401) {
+  //           this.router.navigate(['/login']);
+  //         }
+  //       }
+  //     }
+  //   );
+  // }
 }

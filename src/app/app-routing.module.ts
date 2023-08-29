@@ -7,19 +7,30 @@ import { CartComponent } from './components/cart/cart.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
 import { HomeComponent } from './components/home/home.component';
 import { DetailsComponent } from './components/details/details.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { authGuard } from './auth.guard';
 
 const routes: Routes = [
-  { path: '', component: TodosComponent },
-  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: '/todo', pathMatch: 'full' },
+  { path: 'todo', component: TodosComponent },
+  { path: 'home', component: HomeComponent, canActivate: [authGuard] },
   {
     path: 'details/:id',
     component: DetailsComponent,
     title: 'Home details',
+    canActivate: [authGuard],
   },
-  { path: 'movies', component: MovieListComponent },
-  { path: 'movies/:movie_id', component: MovieDetailsComponent },
+  { path: 'movies', component: MovieListComponent, canActivate: [authGuard] },
+  {
+    path: 'movies/:movie_id',
+    component: MovieDetailsComponent,
+    canActivate: [authGuard],
+  },
   { path: 'cart', component: CartComponent },
-  { path: 'shipping', component: ShippingComponent }
+  { path: 'shipping', component: ShippingComponent },
+  { path: 'login', component: LoginUserComponent },
+  { path: 'register', component: RegisterUserComponent },
 ];
 
 @NgModule({

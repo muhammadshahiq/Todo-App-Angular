@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
+  auth: AuthService = inject(AuthService);
   title = 'my-practice-app';
-  currentYear: number=new Date().getFullYear();
+  currentYear: number = new Date().getFullYear();
 }

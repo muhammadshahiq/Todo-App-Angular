@@ -23,7 +23,11 @@ import { MovieShareAlertComponent } from './components/movie-share-alert/movie-s
 import { MovieDetailsComponent } from './components/movie-details/movie-details.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ShippingComponent } from './components/shipping/shipping.component';
-
+import { RegisterUserComponent } from './components/register-user/register-user.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { AuthService } from './services/auth.service';
+import { authGuard } from './auth.guard';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 // Available options
 interface NgxSpinnerConfig {
   type?: string;
@@ -42,7 +46,9 @@ interface NgxSpinnerConfig {
     MovieShareAlertComponent,
     MovieDetailsComponent,
     CartComponent,
-    ShippingComponent
+    ShippingComponent,
+    RegisterUserComponent,
+    LoginUserComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,8 +65,14 @@ interface NgxSpinnerConfig {
       useClass: LoaderService,
       multi: true,
     },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+    AuthService
   ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppModule { }
+export class AppModule {}
